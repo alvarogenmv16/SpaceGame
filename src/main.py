@@ -1,0 +1,28 @@
+import pygame
+import sys
+from player import PlayerShip
+
+if __name__ == "__main__":
+    pygame.init()
+    # Window congiguration
+    screen_width, screen_height = 800, 800
+
+    screen = pygame.display.set_mode((screen_width, screen_height))
+    clock = pygame.time.Clock()
+    pygame.display.set_caption("SpaceGame")
+
+    player_ship = PlayerShip()
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+        screen.fill((12, 18, 35))
+
+        player_ship.update()
+        player_ship.draw(screen)
+
+        pygame.display.flip()
+        clock.tick(60)
