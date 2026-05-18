@@ -4,20 +4,22 @@ from player import PlayerShip
 
 if __name__ == "__main__":
     pygame.init()
-    # Window congiguration
+    # Window configuration
     screen_width, screen_height = 800, 800
 
     screen = pygame.display.set_mode((screen_width, screen_height))
     clock = pygame.time.Clock()
     pygame.display.set_caption("SpaceGame")
 
-    player_ship = PlayerShip()
+    player_ship = PlayerShip(screen_width, screen_height)
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+
+            player_ship.handle_event(event)
 
         screen.fill((12, 18, 35))
 
