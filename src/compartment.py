@@ -73,13 +73,17 @@ class Compartment:
         self._draw_hp_bar(surface)
 
 # Function to fill the matrix for compartments
-def create_compartments(screen_width, screen_height, names):
+def create_compartments(screen_width, screen_height, names, anchor="bottomright"):
     c_width, c_height = 150, 70
     cols = 2
     rows = 2
 
-    start_x = screen_width  - c_width * cols - COMPARTMENT_GAP * (cols - 1) - COMPARTMENT_MARGIN
-    start_y = screen_height - c_height * rows - COMPARTMENT_GAP * (rows - 1) - COMPARTMENT_MARGIN
+    if anchor == "bottomright":
+        start_x = screen_width  - c_width * cols - COMPARTMENT_GAP * (cols - 1) - COMPARTMENT_MARGIN
+        start_y = screen_height - c_height * rows - COMPARTMENT_GAP * (rows - 1) - COMPARTMENT_MARGIN
+    elif anchor == "topleft":
+        start_x = COMPARTMENT_MARGIN
+        start_y = COMPARTMENT_MARGIN
 
     compartments = []
     for i, name in enumerate(names):
