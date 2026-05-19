@@ -1,6 +1,7 @@
 import pygame
 import sys
 from player import PlayerShip
+from enemy import EnemyShip
 
 if __name__ == "__main__":
     pygame.init()
@@ -12,6 +13,7 @@ if __name__ == "__main__":
     pygame.display.set_caption("SpaceGame")
 
     player_ship = PlayerShip(screen_width, screen_height)
+    enemy_ship = EnemyShip(screen_width, screen_height)
 
     while True:
         for event in pygame.event.get():
@@ -23,6 +25,9 @@ if __name__ == "__main__":
 
         player_ship.update()
         player_ship.draw(screen)
+
+        enemy_ship.update()
+        enemy_ship.draw(screen)
 
         pygame.display.flip()
         clock.tick(60)
