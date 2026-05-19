@@ -13,10 +13,6 @@ class PlayerShip:
     def update(self):
         pass
 
-    def handle_event(self, event):
-        for c in self.compartments:
-            c.handle_event(event)
-
     def draw(self, surface):
         rect = self.sprite.get_rect(center=(self.x, self.y))
         surface.blit(self.sprite, rect)

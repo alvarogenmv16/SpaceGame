@@ -19,8 +19,6 @@ if __name__ == "__main__":
                 pygame.quit()
                 sys.exit()
 
-            player_ship.handle_event(event)
-
         screen.fill((12, 18, 35))
 
         player_ship.update()
