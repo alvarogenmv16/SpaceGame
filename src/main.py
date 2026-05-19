@@ -20,6 +20,7 @@ if __name__ == "__main__":
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+            enemy_ship.handle_event(event)
 
         screen.fill((12, 18, 35))
 
